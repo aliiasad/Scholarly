@@ -8,7 +8,7 @@ from skills_engine import infer_skills
 from cover_letter import generate_cover_letter
 
 load_dotenv()
-app = Flask(__name__)
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 def generate_content(prompt):
